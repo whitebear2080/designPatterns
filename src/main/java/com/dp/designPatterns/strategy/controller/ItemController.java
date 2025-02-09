@@ -28,7 +28,7 @@ public class ItemController {
 
     @GetMapping("/list/{paramLanguage}")
     public String getItemList(@PathVariable final String paramLanguage) throws JsonProcessingException {
-        List<? extends Item> rtnList = itemService.getItemList(StringUtil.isNullOrEmpty(paramLanguage) ? "e" : paramLanguage);
+        List<? extends Item> rtnList = itemService.getItemList(StringUtil.isNullOrEmpty(paramLanguage) ? "e" : paramLanguage.toLowerCase());
         return new ObjectMapper().writeValueAsString(rtnList);
     }
 
